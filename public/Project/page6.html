@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <title>Welcome - Quiet Soul</title>
+
+  <a href="page6.html" id="logo-link">
+    <img src="LOGO.jpg" alt="Quiet Soul Logo">
+  </a>
+
+  <style>
+    body {
+      background-color: #fff8dc;
+      font-family: 'Open Sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2, h3 {
+      color: goldenrod;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .emotion-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .emotion-btn {
+      background-color: white;
+      border: 2px solid goldenrod;
+      border-radius: 10px;
+      padding: 15px;
+      font-size: 16px;
+      color: goldenrod;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .emotion-btn:hover, .emotion-btn.selected {
+      background-color: goldenrod;
+      color: white;
+    }
+  </style>
+
+<script>
+  let selectedEmotions = [];
+
+  function selectEmotion(button) {
+  // إزالة التحديد من جميع الأزرار
+  const buttons = document.querySelectorAll('.emotion-btn');
+  buttons.forEach(btn => btn.classList.remove('selected'));
+
+  // إعادة تعيين المصفوفة
+  selectedEmotions = [];
+
+  // تحديد الزر الذي تم النقر عليه
+  button.classList.add('selected');
+  const emotion = button.innerText;
+  selectedEmotions.push(emotion);
+}
+
+  function handleContinue() {
+    if (selectedEmotions.length === 0) {
+      alert("Please select at least one emotion before continuing.");
+      return;
+    }
+    // Save selected emotions to localStorage
+    localStorage.setItem('selectedEmotions', JSON.stringify(selectedEmotions));
+    // Navigate to the next page
+    window.location.href = 'page7.html'; // أو اسم الصفحة يلي بدك تنتقلي إلها
+  }
+</script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Welcome dear friend!</h2>
+    <p>You are now in a space made just for you. We're here to listen, support, and help you find balance.</p>
+    <h3>What is your emotion-mood to have the ability for supporting you?</h3>
+    <p>Please feel free to select more than one emotion that reflects how you're feeling right now.</p>
+  </div>
+
+  <form id="emotion-form">
+    <div class="emotion-grid">
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Happy 😊</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Gratitude 🙏</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Joyful 😄</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Exhaustion 😩</button>
+
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Tension 😣</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Distress 😰</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Depression 😔</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Emptiness 🕳</button>
+
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Solitude 🧘</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Isolation 🏚</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Sad 😢</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Hopeful 🌟</button>
+
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Anxious 😟</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Motivated 🚀</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Lonely 🥺</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Calm 🧘‍♀</button>
+
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Peaceful ☁</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Overwhelmed 🌪</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Confident 🦁</button>
+      <button type="button" class="emotion-btn" onclick="selectEmotion(this)">Frustrated ⚡</button>
+    </div>
+    <style>
+        .continue-btn {
+  background-color: goldenrod;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: background-color 0.3s;
+}
+
+.continue-btn:hover {
+  background-color: #7d5d0c;
+}
+      
+      </style>
+      
+      <div style="text-align: center">
+        <button type="button" class="continue-btn" onclick="handleContinue()">Continue</button>
+      </div>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>

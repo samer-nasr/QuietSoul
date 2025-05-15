@@ -1,0 +1,22 @@
+/* Logo styling */
+#logo-link {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    text-decoration: none;
+  }
+  
+  #logo-link img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid gold;
+    box-shadow: 0 16px 40px  rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+  }
+  
+  #logo-link img:hover {
+    transform: scale(1.05);
+  }
