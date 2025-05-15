@@ -70,6 +70,7 @@
 
 <script>
   let selectedEmotions = [];
+  selectedEmotions.push("{{ optional($last_feeling)->feeling }}");
 
   function selectEmotion(button) {
   // إزالة التحديد من جميع الأزرار

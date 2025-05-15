@@ -113,7 +113,7 @@ iframe:hover {
   </style>
   
   <div style="text-align: center; margin-top: 40px;">
-    <a href="page7.html">
+    <a href="category">
       <button class="back-btn">Back to Categories</button>
     </a>
   </div>

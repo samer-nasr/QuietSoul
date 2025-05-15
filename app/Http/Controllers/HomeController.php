@@ -56,6 +56,11 @@ class HomeController extends Controller
         return view('sport');
     }
 
+    public function sites(Request $request)
+    {
+        return view('sites');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::get('category' , [HomeController::class, 'category'])->name('category');
     Route::get('music' , [HomeController::class, 'music'])->name('music');
     Route::get('sport' , [HomeController::class, 'sport'])->name('sport');
+    Route::get('sites' , [HomeController::class, 'sites'])->name('sites');
 });
 
 

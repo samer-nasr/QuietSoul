@@ -107,7 +107,7 @@
     </div>
 
     <div class="category-item">
-      <a href="page10.html">
+      <a href="sites">
       <div class="image-wrapper">
         <img src="Project/relaxing.jpg" alt="Relaxing Sites">
       </div>
