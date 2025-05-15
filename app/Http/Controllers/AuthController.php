@@ -25,13 +25,22 @@ class AuthController extends Controller
 
     public function register_user(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            // 'password' => 'required|min:8|confirmed',
-        ]);
+       $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => [
+            'required',
+            'string',
+            'min:8',               // Minimum length
+            'regex:/[A-Z]/',       // Must contain at least one uppercase letter
+            'regex:/[0-9]/',       // Must contain at least one digit
+            'confirmed'            // Matches password_confirmation
+        ],
+    ], [
+        'password.regex' => 'Password must contain at least one uppercase letter and one number.',
+    ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -39,12 +48,15 @@ class AuthController extends Controller
             'job' => $request->job,
             'address' => $request->address,
             'education' => $request->education,
-            'nationality' => $request->gender,
+            'nationality' => $request->nationality,
             'nb_children' => $request->nb_children,
             'marital_status' => $request->marital_status,
             'dob' => $request->dob
         ]);
-        return view('login');
+        auth()->login($user);
+
+                    return redirect()->route('home');
+
     }
 
     public function login_user(Request $request)

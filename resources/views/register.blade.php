@@ -121,6 +121,11 @@
       margin-left: 0;
     }
 
+    input:disabled {
+    background-color: #e0e0e0; /* Light grey */
+    cursor: not-allowed;
+  }
+
   </style>
 
 <link rel="stylesheet" href="Project/style.css">
@@ -146,8 +151,8 @@
       <div style="color: red;">{{$message}}</div>
       @enderror
 
-      <input type="password" id="reg-Conf" placeholder="Confirm Password" required name="confirm_password"><br><br>
-      @error('confirm_password')
+      <input type="password" id="reg-Conf" placeholder="Confirm Password" required name="password_confirmation"><br><br>
+      @error('password_confirmation')
       <div style="color: red;">{{$message}}</div>
       @enderror
       
@@ -158,7 +163,8 @@
       </div><br>
 
       <label>Age:
-        <input type="date" name="dob" id="age" min="14" max="80" required>
+        <!-- <input type="date" name="dob" id="age" min="14" max="80" required> -->
+         <input type="date" name="dob" id="dob" required>
       </label><br><br>
 
       <label>Job:
@@ -198,10 +204,10 @@
       <label>Marital Status:
         <select id="maritalStatus" name="marital" required>
           <option value="">Select...</option>
-          <option>Single</option>
-          <option>Married</option>
-          <option>Divorced</option>
-          <option>Widowed</option>
+          <option value="Single">Single</option>
+          <option value="Married">Married</option>
+          <option value="Divorced">Divorced</option>
+          <option value="Widowed">Widowed</option>
         </select>
       </label><br><br>
 
@@ -224,5 +230,35 @@
     </form>
   </div>
   <script src="Project/script.js"></script>
+  <script>
+    
+  </script>
+  <script>
+    const dobInput = document.getElementById('dob');
+    const today = new Date();
+
+    // Calculate max date (must be 14 years ago or older)
+    const maxDate = new Date();
+    maxDate.setFullYear(today.getFullYear() - 14);
+
+    // Format date as YYYY-MM-DD
+    const maxDateString = maxDate.toISOString().split('T')[0];
+
+    dobInput.setAttribute('max', maxDateString);
+</script>
+
+<script>
+  const maritalSelect = document.getElementById('maritalStatus');
+  const childrenInput = document.getElementById('children');
+
+  maritalSelect.addEventListener('change', function () {
+    if (this.value === 'Single') {
+      childrenInput.value = '';
+      childrenInput.disabled = true;
+    } else {
+      childrenInput.disabled = false;
+    }
+  });
+</script>
 </body>
 </html>
