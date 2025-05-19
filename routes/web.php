@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
@@ -16,6 +17,12 @@ Route::get('register', [AuthController::class , 'register'])->name('register');
 Route::post('register', [AuthController::class , 'register_user'])->name('register_user');
 Route::post('login_user', [AuthController::class , 'login_user'])->name('login_user');
 Route::post('logout', [AuthController::class , 'logout'])->name('logout');
+Route::get('forgetpassword', [AuthController::class , 'forgetpassword'])->name('forgetpassword');
+Route::post('forgot_password', [AuthController::class, 'store']);
+Route::get('emailsend', [AuthController::class , 'emailsend'])->name('emailsend');
+Route::get('reset-password/{token}', [AuthController::class, 'create'])->name('password.reset');
+Route::post('reset-password', [AuthController::class , 'reset'])->name('password.store');
+
 
 // Route::get('/dashboard', function () {
 //     return view('welcome');
@@ -34,6 +41,9 @@ Route::middleware('auth')->group(function () {
     Route::get('music' , [HomeController::class, 'music'])->name('music');
     Route::get('sport' , [HomeController::class, 'sport'])->name('sport');
     Route::get('sites' , [HomeController::class, 'sites'])->name('sites');
+    Route::get('books' , [HomeController::class, 'books'])->name('books');
+    Route::get('diary' , [HomeController::class, 'diary'])->name('diary');
+    Route::get('chat' , [HomeController::class, 'chat'])->name('chat');
 });
 
 

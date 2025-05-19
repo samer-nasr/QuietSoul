@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quiet Soul</title>
@@ -134,6 +135,80 @@
       font-size: 14px;
       color: rgb(241, 250, 251);
     }
+
+    .welcome-message {
+  background-color: white;
+  border-left: 8px solid goldenrod;
+  border-radius: 15px;
+  padding: 20px 30px;
+  margin-bottom: 40px;
+  max-width: 700px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: goldenrod;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 1;
+}
+.welcome-bubble {
+  position: fixed;
+  bottom: 120px; /* تم رفعها فوق الـ stats */
+  right: 20px;
+  background-color: white;
+  border: 2px solid goldenrod;
+  border-radius: 20px;
+  padding: 20px 25px 20px 20px;
+  max-width: 300px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  font-family: 'Poppins', sans-serif;
+  color: #444;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.welcome-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  right: 30px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+  filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.1));
+}
+
+
+    .site-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 70px;
+  color: #fff8f0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+
+  /* التأثير */
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInTop 1.5s ease-out forwards;
+}
+
+/* تعريف الحركة */
+@keyframes fadeInTop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
   </style>
 
 <script defer>
@@ -145,7 +220,14 @@
     window.location.href = "page3.html";
   }
 </script>
-
+<script>
+  function closeBubble() {
+    const bubble = document.getElementById('welcomeBubble');
+    if (bubble) {
+      bubble.style.display = 'none';
+    }
+  }
+</script>
 <link rel="stylesheet" href="Project/style.css">
 
 </head>
@@ -153,6 +235,12 @@
 <body>
 
   <section class="hero">
+    <h1 class="site-title">Quiet Soul</h1>
+
+    <div class="welcome-bubble" id="welcomeBubble">
+      <button class="close-btn" onclick="closeBubble()">×</button>
+      <p>You are now in a space made just for you. We're here to listen, support, and help you find balance.</p>
+    </div>
     <div class="circle-content">
       <h4>About Us</h4>
       <h1>Welcome to Quiet Soul website! You've just entered the right space that understands your feelings, 

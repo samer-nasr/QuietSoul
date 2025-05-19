@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <title>Check Email - Quiet Soul</title>
+  <link rel="stylesheet" href="Project/styles.css" />
+</head>
+<body>
+  
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Quiet Soul System</title>
+
+  <a href="login" id="logo-link">
+    <img src="Project/LOGO.jpg" alt="Quiet Soul Logo">
+  </a>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    body {
+      background-color: gold;
+      color: #333;
+    }
+
+    .hero {
+      height: 91vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .circle-content {
+      background: white;
+      border-radius: 50%;
+      width: 500px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+      padding: 30px;
+    }
+
+    .circle-content h4 {
+      color: #f5a623;
+      margin-bottom: 10px;
+      font-size: 50px;
+    }
+
+    .circle-content h1 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .circle-content p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+      padding: 0 10px;
+    }
+
+    .circle-content button {
+      background-color: goldenrod;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    .stats {
+      background-color: goldenrod;
+      color: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 20px 20px;
+      margin-top: -5px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-item h2 {
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #f9f6c8;
+    }
+
+    .stat-item p h3 {
+      font-size: 14px;
+      color: rgb(241, 250, 251);
+    }
+  </style>
+
+<link rel="stylesheet" href="Project/style.css">
+
+</head>
+<body>
+
+  <section class="hero">
+    <div class="circle-content">
+      <h4>Email sent</h4>
+      <div class="container">
+        <p>
+          A password reset link has been sent to your email. Please check your inbox.
+        </p>
+    
+        <div class="footer">
+          <a href="login">Back to Login</a>
+        </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat-item">
+      <h2>1</h2>
+      <p>Balance</p>
+    </div>
+    <div class="stat-item">
+      <h2>2</h2>
+      <p>Hope</p>
+    </div>
+    <div class="stat-item">
+      <h2>3</h2>
+      <p>Strength</p>
+    </div>
+    <div class="stat-item">
+      <h2>4</h2>
+      <p>Healing</p>
+    </div>
+  </section>
+  <script src="Project/script.js"></script>
+</body>
+</html>

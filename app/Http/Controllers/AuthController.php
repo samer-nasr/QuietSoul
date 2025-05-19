@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\feelingUser;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Mail;
+
 
 class AuthController extends Controller
 {
@@ -21,6 +25,11 @@ class AuthController extends Controller
     public function register()
     {
         return view('register');
+    }
+
+    public function forgetpassword(Request $request)
+    {
+        return view('forgetpassword');
     }
 
     public function register_user(Request $request)
@@ -78,22 +87,70 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 
+    public function emailsend(Request $request)
+    {
+        return view('emailsend');
+    }
+
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        // dd($request->all());    
+        return view('resetpasswordform' , compact('request'));
+    }
+
+    public function reset(Request $request)
+    {
+         $request->validate([
+        'email' => 'required|string|email',
+        'password' => [
+            'required',
+            'string',
+            'min:8',               // Minimum length
+            'regex:/[A-Z]/',       // Must contain at least one uppercase letter
+            'regex:/[0-9]/',       // Must contain at least one digit
+            'confirmed'            // Matches password_confirmation
+        ],
+    ], [
+        'password.regex' => 'Password must contain at least one uppercase letter and one number.',
+    ]);
+        $user = User::where('email', $request->email)->first();
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->route('login')->with('status', 'Password reset successfully');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+public function store(Request $request): RedirectResponse
     {
-        //
+       $request->validate([
+    'email' => ['required', 'email', 'exists:users,email'],
+        ]);
+        // We will send the password reset link to this user. Once we have attempted
+        // to send the link, we will examine the response then see the message we
+        // need to show to the user. Finally, we'll send out a proper response.
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+
+        // return $status == Password::RESET_LINK_SENT
+        //             ? back()->with('status', __($status))
+        //             : back()->withInput($request->only('email'))
+        //                     ->withErrors(['email' => __($status)]);
+        //  dd('here');
+
+                           
+        return redirect()->route('emailsend');
+
     }
+
 
     /**
      * Display the specified resource.

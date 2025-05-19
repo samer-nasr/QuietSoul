@@ -191,7 +191,7 @@
          <h4><button type="submit">Login</button></button></h4>
          <div class="footer">
           <!-- رابط "Forgot Password" مع تأثير -->
-          <a href="page4.html">Forgot Password?</a>
+          <a href="forgetpassword">Forgot Password?</a>
         </div> <br>
         <!-- إضافة الرابط "Register Now" هنا مع تأثير -->
         <h5><span> I don't have an account. <a href="register">Register Now</a></span></h5>

@@ -12,10 +12,7 @@
   <!-- <a href="logout" id="" style="float: right;">
     logout
   </a> -->
-  <form action="logout" method="POST">
-    @csrf
-    <button type="submit">logout</button>
-  </form>
+  
 
   <style>
     body {
@@ -106,9 +103,7 @@
 
   <div class="container">
     <h2>Welcome dear friend!</h2>
-    <p>You are now in a space made just for you. We're here to listen, support, and help you find balance.</p>
-    <h3>What is your emotion-mood to have the ability for supporting you?</h3>
-    <p>Please feel free to select more than one emotion that reflects how you're feeling right now.</p>
+    <p>Welcome to your personal corner of peace. Your feelings Matter here.</p>
   </div>
 
   <form id="emotion-form" action="category" method="GET">
@@ -140,7 +135,12 @@
       
       <div style="text-align: center">
         <button type="submit" class="continue-btn" onclick="handleContinue()">Continue</button>
+         <form action="logout" method="POST">
+    @csrf
+    <button type="submit" class="continue-btn">logout</button>
+  </form>
       </div>
+     
   </form>
   <script src="Project/script.js"></script>
 </body>

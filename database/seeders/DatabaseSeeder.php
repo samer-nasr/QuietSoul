@@ -5,10 +5,12 @@ namespace Database\Seeders;
 use App\Models\Bundle;
 use App\Models\Feeling;
 use App\Models\FeelingMusic;
+use App\Models\FeelingSport;
 use App\Models\Member;
 use App\Models\Membership;
 use App\Models\Music;
 use App\Models\Payement;
+use App\Models\Sport;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,7 +27,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'samer',
-            'email' => 'samer@live.com',
+            'email' => 'samnasrer@gmail.com',
             'password' => Hash::make('password'),
             'gender' => 'Male',
             'job' => 'Developer',
@@ -154,23 +156,76 @@ class DatabaseSeeder extends Seeder
             'link' => 'https://www.youtube.com/embed/9Q634rbsypE'
         ]);
 
-        FeelingMusic::create([
-            'feeling_id' => 1,
-            'music_id' => 1
+        
+        $sport_links= [
+    "https://www.youtube.com/embed/4pLUleLdwY4", 
+    "https://www.youtube.com/embed/v7AYKMP6rOE",
+    "https://www.youtube.com/embed/sTANio_2E0Q",
+    "https://www.youtube.com/embed/OQ6NfFIr2jw",
+    "https://www.youtube.com/embed/ml6cT4AZdqI",
+    "https://www.youtube.com/embed/Nw2oBIrQGLo",
+    "https://www.youtube.com/embed/WtGE0Uz9zSE",
+    "https://www.youtube.com/embed/Xs6gah4DseA",
+    "https://www.youtube.com/embed/40bPxbFUCj4",
+    "https://www.youtube.com/embed/_HJXKkY1pBs",
+    "https://www.youtube.com/embed/9MazN_6wdqI",  
+    "https://www.youtube.com/embed/U_68GChh3Qs", 
+    "https://www.youtube.com/embed/ys2P5UsDSgQ",
+    "https://www.youtube.com/embed/HI-hKN-dVLY",
+    "https://www.youtube.com/embed/QisYLeLT70s",
+    "https://www.youtube.com/embed/XChk73pyyjA",
+    "https://www.youtube.com/embed/8dKBDesugPU",
+    "https://www.youtube.com/embed/iIZahcl1PfA",
+    "https://www.youtube.com/embed/pU8V70yRW-w",  
+    "https://www.youtube.com/embed/2_SE2gQwXoo",
+    "https://www.youtube.com/embed/iCkek3txJL4",
+    "https://www.youtube.com/embed/9xZcnOjLNZ0",
+    "https://www.youtube.com/embed/xLS9uQQQyB0",
+    "https://www.youtube.com/embed/DVGlvhNaKl8" 
+    ];
+    foreach($sport_links as $link)
+    {
+        Sport::create([
+            'link' => $link
         ]);
-        FeelingMusic::create([
-            'feeling_id' => 1,
-            'music_id' => 2
-        ]);FeelingMusic::create([
-            'feeling_id' => 1,
-            'music_id' => 3
-        ]);FeelingMusic::create([
-            'feeling_id' => 1,
-            'music_id' => 4
-        ]);FeelingMusic::create([
-            'feeling_id' => 1,
-            'music_id' => 5
-        ]);
+    }
+   
+
+        
+
+        $feelings = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+        foreach($feelings as $feeling)
+        {
+            // rand(1, 15);
+            $nb_sports = rand(4, 10);
+            $nb_music = rand(4, 10);
+            $previous_music = [];
+            $previous_sport = [];
+            for($i = 0; $i < $nb_music; $i++)
+            {
+                $music_id = rand(1, 15);
+                while(in_array($music_id, $previous_music))
+                {
+                    $music_id = rand(1, 15);
+                }
+                FeelingMusic::create([
+                    'feeling_id' => $feeling,
+                    'music_id' => $music_id
+                ]);
+            }
+            for($i = 0; $i < $nb_sports; $i++)
+            {
+                $sport_id = rand(1, 24);
+                while(in_array($sport_id, $previous_sport))
+                {
+                    $sport_id = rand(1, 24);
+                }
+                FeelingSport::create([
+                    'feeling_id' => $feeling,
+                    'sport_id' => $sport_id
+                ]);
+            }
+        }
 
 
 

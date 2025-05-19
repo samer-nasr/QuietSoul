@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Journaling - Quiet Soul</title>
+  
+  <a href="category" id="logo-link">
+    <img src="Project/LOGO.jpg" alt="Quiet Soul Logo">
+  </a>
+  
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fff8dc;
+      margin: 0;
+      padding: 30px;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      color: goldenrod;
+    }
+
+
+    .motivation {
+      text-align: center;
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    .benefits {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .benefit-box {
+      background-color: white;
+      border: 2px solid goldenrod;
+      border-radius: 15px;
+      padding: 20px;
+      width: 300px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .benefit-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .questions-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .question-circle {
+      width: 180px;
+      height: 180px;
+      background-color: white;
+      border: 2px solid goldenrod;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      font-size: 16px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .question-circle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+   
+  .journaling-apps-section {
+    margin-top: 40px;
+    padding: 0 20px;
+    text-align: left;
+  }
+
+  .journaling-apps-section h3 {
+    color: goldenrod;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .journaling-app {
+    background-color: white;
+    border: 2px solid goldenrod;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 16px;
+  }
+
+  .journaling-app:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 25px rgba(218, 165, 32, 0.6);
+  }
+</style>
+<link rel="stylesheet" href="Project/style.css">
+</head>
+<body>
+
+  <h2>Journaling for a Personal Peace</h2>
+
+  <div class="motivation">
+    Sometimes, the best listener is a blank page. Write your thoughts, and you will discover clarity and calm.
+  </div>
+
+  <div class="benefits">
+    <div class="benefit-box">Journaling helps reduce stress and anxiety by letting your thoughts out.</div>
+    <div class="benefit-box">It increases self-awareness and emotional intelligence.</div>
+    <div class="benefit-box">Daily writing can improve your clarity and focus.</div>
+    <div class="benefit-box">Journaling builds consistency and helps you track your progress.</div>
+    <div class="benefit-box">It provides a safe space to express your deepest emotions.</div>
+    <div class="benefit-box">Journaling allows you to release negative thoughts and tension, promoting a calmer and more peaceful mindset.</div>
+  </div>
+
+  <h2>Start With These Daily Prompts</h2>
+
+  <div class="questions-container">
+    <div class="question-circle">What am I grateful for today?</div>
+    <div class="question-circle">What emotion is most present in me right now?</div>
+    <div class="question-circle">What made me smile today?</div>
+    <div class="question-circle">What’s one thing I’m proud of?</div>
+    <div class="question-circle">What’s something I need to let go of?</div>
+    <div class="question-circle">How did I take care of myself today?</div>
+    <div class="question-circle">What can I do better tomorrow?</div>
+    <div class="question-circle">What’s my biggest challenge today?</div>
+    <div class="question-circle">How do I feel about myself today?</div>
+    <div class="question-circle">What’s something I’m looking forward to?</div>
+    <div class="question-circle">What made me proud?</div>
+    <div class="question-circle">What challenged me today?</div>
+  </div>
+  <div class="journaling-apps-section">
+    <h3>Recommended Journaling Apps</h3>
+    <div class="journaling-app">1. Journey- Diary, Journal – A journal app for reflection and growth.
+        
+    </div>
+    <div class="journaling-app">2. Day One Journal- Private Diary – Simple, elegant journaling experience.</div>
+    <div class="journaling-app">3. Reflectly-Journal & AI Diary – Write with the help of AI prompts.</div>
+    <div class="journaling-app">4. Diary Journal, notes-Diaro – Organize your thoughts and memories.</div>
+    <div class="journaling-app">5. DailyBean- simplest journal – Track moods and events in seconds.</div>
+  </div>
+  <style>
+    .back-btn {
+      background-color: goldenrod;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+  
+    .back-btn:hover {
+      background-color: #7d5d0c;
+      transform: scale(1.05);
+    }
+  </style>
+  
+  <div style="text-align: center; margin-top: 40px;">
+    <a href="category">
+      <button class="back-btn">Back to Categories</button>
+    </a>
+  </div>
+
+</body>
+
+<script src="Public/script.js"></script>
+</html>

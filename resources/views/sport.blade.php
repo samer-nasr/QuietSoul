@@ -68,31 +68,10 @@ iframe:hover {
   <p>Sometimes, all you need is a bit of movement to reset your spirit. Choose the activity that speaks to your soul.</p>
 
   <div class="video-wrapper">
-    <iframe src="https://www.youtube.com/embed/4pLUleLdwY4" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/v7AYKMP6rOE" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/sTANio_2E0Q" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/OQ6NfFIr2jw" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/ml6cT4AZdqI" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/Nw2oBIrQGLo" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/WtGE0Uz9zSE" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/Xs6gah4DseA" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/40bPxbFUCj4" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/_HJXKkY1pBs" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/9MazN_6wdqI" allowfullscreen></iframe>  
-    <iframe src="https://www.youtube.com/embed/U_68GChh3Qs" allowfullscreen></iframe> 
-    <iframe src="https://www.youtube.com/embed/ys2P5UsDSgQ" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/HI-hKN-dVLY" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/QisYLeLT70s" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/XChk73pyyjA" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/8dKBDesugPU" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/iIZahcl1PfA" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/pU8V70yRW-w" allowfullscreen></iframe>  
-    <iframe src="https://www.youtube.com/embed/2_SE2gQwXoo" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/iCkek3txJL4" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/9xZcnOjLNZ0" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/xLS9uQQQyB0" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/DVGlvhNaKl8" allowfullscreen></iframe>
-   
+    @foreach($sports as $sport)
+    <iframe src="{{ $sport->link }}" allowfullscreen></iframe>
+    @endforeach
+    
   </div>
   <style>
     .back-btn {

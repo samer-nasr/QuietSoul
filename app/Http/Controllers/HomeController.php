@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Feeling;
 use App\Models\FeelingMusic;
+use App\Models\FeelingSport;
 use App\Models\feelingUser;
 use App\Models\Music;
+use App\Models\Sport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,12 +55,36 @@ class HomeController extends Controller
 
     public function sport(Request $request)
     {
-        return view('sport');
+        $last_feeling = feelingUser::where('user_id', Auth::id())->latest()->first();
+        $feeling = Feeling::where('name' , $last_feeling->feeling)->first();
+        $sports = FeelingSport::with('sport')->where('feeling_id', $feeling->id)->get();
+        $sport_ids = $sports->pluck('sport_id');
+        $sports = Sport::whereIn('id', $sport_ids)->get();
+        if($sports->isEmpty())  
+        {   
+            $sports = Sport::all();
+        }
+        return view('sport', compact('sports'));
     }
 
     public function sites(Request $request)
     {
         return view('sites');
+    }
+
+    public function books(Request $request)
+    {
+        return view('books');
+    }
+
+    public function diary(Request $request)
+    {
+        return view('diary');
+    }
+
+    public function chat(Request $request)
+    {
+        return view('chat');
     }
 
     /**

@@ -116,16 +116,16 @@
     </div>
 
     <div class="category-item">
-      <a href="page11.html">
+      <a href="books">
       <div class="image-wrapper">
         <img src="Project/books2.jpg" alt="Books">
       </div>
     </a>
-      <div class="category-name">books</div>
+      <div class="category-name">Books</div>
     </div>
 
     <div class="category-item">
-      <a href="page12.html">
+      <a href="diary">
       <div class="image-wrapper">
         <img src="Project/journaling1.jpg" alt="Diary">
       </div>
@@ -134,7 +134,7 @@
     </div>
 
     <div class="category-item">
-      <a href="page13.html">
+      <a href="chat">
       <div class="image-wrapper">
         <img src="Project/chats.jpg" alt="Chatting">
       </div>
