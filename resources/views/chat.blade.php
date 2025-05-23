@@ -143,7 +143,7 @@
       <input type="text" id="userInput" placeholder="Type your message...">
       <button onclick="sendMessage()">Send</button>
     </div>
-  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
     <script>
       const chatBox = document.getElementById("chat-box");
     
@@ -166,6 +166,29 @@
     
         input.value = "";
         chatBox.scrollTop = chatBox.scrollHeight;
+
+        $.ajax({
+            url: '/send-data', // Laravel route
+            type: 'POST',
+            data: {
+                message: message,
+                _token: '{{ csrf_token() }}' // Important for Laravel
+            },
+            success: function (response) {
+                // إزالة "Bot is typing..."
+                chatBox.removeChild(typing);
+    
+                // عرض رسالة البوت
+                let botMessage = document.createElement("div");
+                botMessage.className = "message bot";
+                botMessage.textContent = response.message; // تأكد من أن هذا هو المفتاح الصحيح في الاستجابة
+                chatBox.appendChild(botMessage);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            },
+            error: function (xhr) {
+                console.error('Error:', xhr.responseText);
+            }
+        });
     
       }
     </script>

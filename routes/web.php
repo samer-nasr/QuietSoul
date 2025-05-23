@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::get('books' , [HomeController::class, 'books'])->name('books');
     Route::get('diary' , [HomeController::class, 'diary'])->name('diary');
     Route::get('chat' , [HomeController::class, 'chat'])->name('chat');
+    Route::post('send-data' , [HomeController::class, 'send_data'])->name('send-data');
 });
 
 

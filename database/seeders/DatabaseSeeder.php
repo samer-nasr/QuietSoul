@@ -151,7 +151,7 @@ class DatabaseSeeder extends Seeder
         ]);Music::create([
             'link' => 'https://www.youtube.com/embed/dC7cw0urYoI'
         ]);Music::create([
-            'link' => ''
+            'link' => 'https://www.youtube.com/embed/1L7YmTPUQFk'
         ]);Music::create([
             'link' => 'https://www.youtube.com/embed/9Q634rbsypE'
         ]);
@@ -181,7 +181,22 @@ class DatabaseSeeder extends Seeder
     "https://www.youtube.com/embed/iCkek3txJL4",
     "https://www.youtube.com/embed/9xZcnOjLNZ0",
     "https://www.youtube.com/embed/xLS9uQQQyB0",
-    "https://www.youtube.com/embed/DVGlvhNaKl8" 
+    "https://www.youtube.com/embed/DVGlvhNaKl8",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
     ];
     foreach($sport_links as $link)
     {
@@ -194,13 +209,16 @@ class DatabaseSeeder extends Seeder
         
 
         $feelings = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+        $previous_music = [];
+        $previous_sport = [];
         foreach($feelings as $feeling)
         {
+             $previous_music = [];
+             $previous_sport = [];
             // rand(1, 15);
-            $nb_sports = rand(4, 10);
-            $nb_music = rand(4, 10);
-            $previous_music = [];
-            $previous_sport = [];
+            $nb_sports = rand(7, 14);
+            $nb_music = rand(7, 14);
+
             for($i = 0; $i < $nb_music; $i++)
             {
                 $music_id = rand(1, 15);
@@ -208,6 +226,7 @@ class DatabaseSeeder extends Seeder
                 {
                     $music_id = rand(1, 15);
                 }
+                $previous_music[] = $music_id;
                 FeelingMusic::create([
                     'feeling_id' => $feeling,
                     'music_id' => $music_id
@@ -220,6 +239,7 @@ class DatabaseSeeder extends Seeder
                 {
                     $sport_id = rand(1, 24);
                 }
+                $previous_sport[] = $sport_id;
                 FeelingSport::create([
                     'feeling_id' => $feeling,
                     'sport_id' => $sport_id

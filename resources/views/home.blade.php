@@ -12,6 +12,7 @@
   <!-- <a href="logout" id="" style="float: right;">
     logout
   </a> -->
+
   
 
   <style>
@@ -67,7 +68,7 @@
 
 <script>
   let selectedEmotions = [];
-  selectedEmotions.push("{{ optional($last_feeling)->feeling }}");
+  //selectedEmotions.push("{{ optional($last_feeling)->feeling }}");
 
   function selectEmotion(button) {
   // إزالة التحديد من جميع الأزرار
@@ -84,16 +85,7 @@
   document.getElementById('emotions').value = emotion.replace(/\p{Emoji}/gu, '').trim();
 }
 
-  function handleContinue() {
-    if (selectedEmotions.length === 0) {
-      alert("Please select at least one emotion before continuing.");
-      return;
-    }
-    // Save selected emotions to localStorage
-    localStorage.setItem('selectedEmotions', JSON.stringify(selectedEmotions));
-    // Navigate to the next page
-    // window.location.href = 'page7.html'; // أو اسم الصفحة يلي بدك تنتقلي إلها
-  }
+  
 </script>
 
 <link rel="stylesheet" href="Project/style.css">
@@ -133,15 +125,45 @@
       
       </style>
       
-      <div style="text-align: center">
+      <!-- <div style="text-align: center">
         <button type="submit" class="continue-btn" onclick="handleContinue()">Continue</button>
-         <form action="logout" method="POST">
-    @csrf
-    <button type="submit" class="continue-btn">logout</button>
-  </form>
+         <button class="logout continue-btn">logout</button>
       </div>
+        -->
      
   </form>
+   <div style="text-align: center">
+        <button type="submit" class="continue-btn" onclick="handleContinue()">Continue</button>
+         <button class="logout continue-btn">logout</button>
+      </div>
+    <form id="logout" action="logout" method="POST" style="display: none;">
+    @csrf
+  </form>
   <script src="Project/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+  <script>
+    $(document).ready(function(){
+      $('.continue-btn').on('click' , function(){
+        $("#emotion-form").submit();
+      });
+      $("#emotion-form").on("submit" , function(event){
+        event.preventDefault(); // منع الإرسال الافتراضي للنموذج
+        const selectedEmotions = $("#emotions").val();
+        if (selectedEmotions.length === 0) {
+          alert("Please select at least one emotion before continuing.");
+          return;
+        }
+        this.submit(); // إرسال النموذج
+        // إرسال النموذج باستخدام AJAX
+       
+      });
+      $(".logout").on("click" , function(event){
+        $("#logout").submit();
+        // alert('hello');
+      });
+    });
+  </script>
+    
+
 </body>
 </html>

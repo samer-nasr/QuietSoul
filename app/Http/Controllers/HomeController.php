@@ -10,6 +10,7 @@ use App\Models\Music;
 use App\Models\Sport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -50,6 +51,7 @@ class HomeController extends Controller
         {   
             $musics = Music::all();
         }
+        // dd($musics->toArray());
         return view('music', compact('musics'));
     }
 
@@ -85,6 +87,38 @@ class HomeController extends Controller
     public function chat(Request $request)
     {
         return view('chat');
+    }
+
+    public function send_data(Request $request)
+    {
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer ' . env('OPENAI_API_KEY'),
+        ])->post('https://openrouter.ai/api/v1/chat/completions', [
+            'model' => 'deepseek/deepseek-r1:free',
+            'messages' => [
+                [
+                    'role' => 'system',
+                    'content' => 'You are a therapist the user can talk to. You are very helpful and friendly. answer with 20 words'
+                ],
+                [
+                    'role' => 'user',
+                    'content' => $request->message
+                ]
+            ]
+        ]);
+
+        $data = $response->json();
+        // dd($data);
+        $message = $data['choices'][0]['message']['content'] ?? 'No message found';
+
+        // dd($message);
+
+
+        return response()->json([
+            'status' => 'success',
+            'message' => $message,
+        ]);
     }
 
     /**
